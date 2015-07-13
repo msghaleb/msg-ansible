@@ -1,0 +1,6 @@
+---
+
+- name: Download file 
+  win_get_url:
+    url: 'http://winblog.blob.core.windows.net/win/sites/2/2012/02/6874.5_5F00_01C91EBC.png'
+    dest: 'C:\aa.png'
