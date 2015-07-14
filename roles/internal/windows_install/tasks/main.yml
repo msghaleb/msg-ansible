@@ -1,6 +1,22 @@
 ---
 
-- name: Download file 
+#- name: Creat Download directory
+#  win_file: 
+#    path="{{ windows_install_download_directory }}"
+#    state=directory
+
+
+- name: Download file exe files
   win_get_url:
-    url: 'http://winblog.blob.core.windows.net/win/sites/2/2012/02/6874.5_5F00_01C91EBC.png'
-    dest: 'C:\aa.png'
+    url: "{{ item.url }}"
+    dest: '{{ item.dest }}'
+  with_items: windows_install_exe
+  when: windows_install_exe is defined 
+
+- name: Download file msi files
+  win_get_url:
+    url: "{{ item.url }}"
+    dest: '{{ item.dest }}'
+  with_items: windows_install_msi
+  when: windows_install_msi is defined 
+

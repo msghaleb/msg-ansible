@@ -3,5 +3,6 @@
 
 - hosts: all
   gather_facts: False
+  connection: winrm
   roles:
-    - rdp
+    - windows_install

@@ -1,7 +1,4 @@
 ---
-- debug : var=aws_group
-
-- debug : var=aws_instance_type
 
 - name: provision | Provision a set of instances
   ec2:
@@ -13,5 +10,6 @@
      wait: "{{ aws_wait | default(omit) }}"
      exact_count: "{{ aws_exact_count | default(omit) }}"
      count_tag: "{{ aws_count_tag |default(omit) }}"
+     keypair: "{{ aws_keypair }}"
      instance_tags: "{{ aws_instance_tags | default(omit)}}"
   register: ec2

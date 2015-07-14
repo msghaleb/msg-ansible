@@ -1,23 +1,16 @@
 ---
 
-aws_group           : "default"
+aws_group           : "ghaleb_win"
 aws_instance_type   : "t2.micro"
-aws_image           : "ami-accff2b1"  # Ubuntu
+aws_image           : "ami-c887bed5"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 
 aws_wait            : "true"
 aws_exact_count     : "1"
 aws_count_tag       :
        Name         : "{{ inventory_hostname }}"
 aws_instance_tags   :
        Name         : "{{ inventory_hostname }}"
-
-# it is suggested that these be encrypted with ansible-vault:
-# ansible-vault edit group_vars/windows.yml
-
-ansible_ssh_user  : Administrator
-ansible_ssh_pass  : xC.QShGGLco
-ansible_ssh_port  : 5986
-ansible_connection: winrm
+aws_keypair         : "ghaleb1"
 
 
-
-
+ansible_ssh_port  : 5986  
+ansible_ssh_user  : Administrator 
