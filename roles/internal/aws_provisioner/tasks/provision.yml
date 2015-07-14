@@ -1,5 +1,5 @@
 ---
-
+- debug: var=user_data
 - name: provision | Provision a set of instances
   ec2:
      group: "{{ aws_group | default(omit) }}"
@@ -9,7 +9,8 @@
      region: "{{ aws_region }}"
      wait: "{{ aws_wait | default(omit) }}"
      exact_count: "{{ aws_exact_count | default(omit) }}"
-     count_tag: "{{ aws_count_tag |default(omit) }}"
+     count_tag: "{{ aws_count_tag | default(omit) }}"
      keypair: "{{ aws_keypair }}"
+     user_data: "{{ aws_user_data | default(omit) }} "
      instance_tags: "{{ aws_instance_tags | default(omit)}}"
   register: ec2

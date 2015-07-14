@@ -14,3 +14,15 @@ aws_keypair         : "ghaleb1"
 
 ansible_ssh_port  : 5986  
 ansible_ssh_user  : Administrator 
+
+aws_user_data       : |
+                        <powershell>
+                        echo . 2> C:\1-temp.txt
+                        Set-ExecutionPolicy RemoteSigned
+                        echo . 2> C:\2-temp.txt
+                        $file = "C:\ConfigureRemotingForAnsible.ps1"
+                        $webclient = New-Object System.Net.WebClient
+                        $url = "https://raw.githubusercontent.com/ansible/ansible/devel/examples/scripts/ConfigureRemotingForAnsible.ps1"
+                        $webclient.DownloadFile($url,$file)
+                        Invoke-Expression C:\ConfigureRemotingForAnsible.ps1
+                        </powershell>
