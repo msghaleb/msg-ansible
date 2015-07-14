@@ -2,4 +2,4 @@
 windows_user        : "ansible"
 
 
-ansible_ssh_pass    : "REPLACEME"
+ansible_ssh_pass    : "!REPLACEME12345!"
