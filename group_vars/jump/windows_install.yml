@@ -7,8 +7,8 @@ default_file                       : "{{ windows_install_download_directory }}/{
 
 windows_install_msi                :
                                      - url: 'http://www.cybelesoft.com/downloads/Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
-                                       dest: '{{ windows_install_download_directory }}/Thinfinity_Remote_Desktop_Workstation_Setup_x32.msi'
-
+                                       dest: 'C:\\Users\\Administrator\\Downloads\\Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
+ 
 windows_install_exe                : 
                                      - url: 'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe'
-                                       dest: 'C:\Users\Administrator\Desktop\putty.exe'
+                                       dest: 'C:\\Users\\Administrator\\Desktop\\putty.exe'

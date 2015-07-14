@@ -20,3 +20,13 @@
   with_items: windows_install_msi
   when: windows_install_msi is defined 
 
+- name: Install msi files
+  win_msi: 
+    path="{{ item.dest }}"
+    state="present"
+  with_items: windows_install_msi
+  when: windows_install_msi is defined 
+
+
+
+
