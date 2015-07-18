@@ -5,7 +5,7 @@ aws_group           : "ghaleb_win"
 aws_instance_type   : "t2.micro"
 aws_image           : "ami-c887bed5"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 
 aws_wait            : "true"
-aws_exact_count     : "1"
+aws_exact_count     : "1" # The number of computers to provision
 aws_count_tag       :
        Name         : "{{ aws_instances_name }}"
        Group        : "{{ tag_group }} "
@@ -15,7 +15,7 @@ aws_instance_tags   :
        Group        : "{{ tag_group }} "
 aws_keypair         : "ghaleb1"
 
-
+# Default variable winrm port and windows user
 ansible_ssh_port    : 5986  
 ansible_ssh_user    : Administrator 
 

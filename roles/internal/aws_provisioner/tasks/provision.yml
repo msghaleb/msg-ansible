@@ -1,5 +1,7 @@
 ---
-- debug: var=user_data
+- name: provision | Print aws_user_data varaible
+  debug: var=aws_user_data
+
 - name: provision | Provision a set of instances
   ec2:
      group: "{{ aws_group | default(omit) }}"

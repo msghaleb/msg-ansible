@@ -1,4 +1,4 @@
 ---
-
+# AWS region is Frankfurt
 aws_region  : "eu-central-1"
 

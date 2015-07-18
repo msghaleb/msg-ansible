@@ -8,25 +8,31 @@
 
 - name: Download file exe files
   win_get_url:
-    url: "{{ item.url }}"
-    dest: '{{ item.dest }}'
+    url: "{{ item.url }}" # item.url is the url of the item below in this case windows_install_exe
+    dest: "{{ item.dest }}" # item.dest is the dest of the item below in this case windows_install_exe
   with_items: windows_install_exe
   when: windows_install_exe is defined 
 
 - name: Download file msi files
   win_get_url:
     url: "{{ item.url }}"
-    dest: '{{ item.dest }}'
+    dest: "{{ item.dest }}" # item.dest is the dest of the item below in this case windows_install_msi
   with_items: windows_install_msi
   when: windows_install_msi is defined 
 
 - name: Install msi files
   win_msi: 
-    path="{{ item.dest }}"
-    state="present"
+    path="{{ item.dest }}" # item.dest is the dest of the item below in this case windows_install_msi
   with_items: windows_install_msi
   when: windows_install_msi is defined 
 
 
-
+- name: Copy ThinRDP config file
+  win_copy:
+    src=Thinfinity.RemoteDesktop.Workstation.ini
+    dest='C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\Thinfinity.RemoteDesktop.Workstation.ini'
+  notify:
+    - restart thinRDP
+  tags:
+    - asd
 

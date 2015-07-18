@@ -2,7 +2,7 @@
 # demo_setup.yml
 
 - hosts: all
-  connection: local
+  connection: local # Local means it will run from the management server and won't connect to run remotly (smart("ssh), local, winrm, ...)
   gather_facts: False
   roles:
     - aws_provisioner

@@ -1,14 +1,13 @@
 ---
 
-windows_install_download_directory : 'C:\Users\Administrator\Downloads'
+windows_install_download_directory : 'C:\Users\{{ windows_install_user }}\Downloads'
 
 
-default_file                       : "{{ windows_install_download_directory }}/{{ item | basename }}"
 
 windows_install_msi                :
                                      - url: 'http://web-wand.de/Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
-                                       dest: 'C:\\Users\\Administrator\\Downloads\\Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
 
 windows_install_exe                : 
                                      - url: 'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe'
-                                       dest: 'C:\\Users\\Administrator\\Desktop\\putty.exe'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\putty.exe'
