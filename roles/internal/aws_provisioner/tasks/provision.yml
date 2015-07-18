@@ -1,6 +1,6 @@
 ---
-- name: provision | Print aws_user_data varaible
-  debug: var=aws_user_data
+# - name: provision | Print aws_user_data varaible
+#  debug: var=aws_user_data
 
 - name: provision | Provision a set of instances
   ec2:
@@ -16,3 +16,11 @@
      user_data: "{{ aws_user_data | default(omit) }} "
      instance_tags: "{{ aws_instance_tags | default(omit)}}"
   register: ec2
+
+#- name: provision | Waiting for winrm port to open
+#  wait_for:
+#    port="{{ ansible_ssh_port | default('22') }}"
+#    host="{{ ec2.tagged_instances.public_ip }}"
+#    delay=1
+#    timeout=5
+#  search_regex=OpenSSH
