@@ -24,8 +24,8 @@
 #    delay=1
 #    timeout=5
 #  search_regex=OpenSSH
-# - debug:
-#    msg="{{ ec2.tagged_instances[0].public_ip }}"
+- debug:
+    msg="{{ ec2.tagged_instances[0].public_ip }}"
 
 - name: provision | set facts for ansible_ssh_host
   set_fact:
