@@ -20,21 +20,13 @@
 #- name: provision | Waiting for winrm port to open
 #  wait_for:
 #    port="{{ ansible_ssh_port | default('22') }}"
-#    host="{{ ec2.tagged_instances.public_ip }}"
+#    host="{{ ec2.tagged_instances[0].public_ip  }}"
 #    delay=1
 #    timeout=5
 #  search_regex=OpenSSH
-- name: provision | Mail confimration module
-  local_action: mail
-                host='smtp.strato.de'
-                port=465
-                username='info@web-wand.de'
-                password='Fre!s!ng2015'
-                headers="Content-type=text/html"
-                charset='UTF-8'
-                from="no_reply@amazonaws.com (Mohamed Ghaleb)"
-                to='{{ aws_username }}'
-                subject='Your CloudFirst Sandbox access details'
-                body='Dear {{ user_fname }}, {{ new_line }}{{ new_line }}Your Amazon Cloud login has been created and ready to use, below are the needed details{{ a_colon }}{{ new_line }}{{ new_line }}The url is "https{{ a_colon }}//693860272213.signin.aws.amazon.com/console"{{ new_line }}Username{{ a_colon }} {{ aws_username }}{{ new_line }}Password{{ a_colon }} {{ ansible_ssh_pass }}{{ new_line }}{{ new_line }}Your cloud system {{ inventory_hostname }} has been successfully provisioned and ready for use.{{ new_line }}{{ new_line }}Please access it using the following link https{{ a_colon }}//{{ansible_ssh_host}}{{ new_line }}{{ new_line }}Username{{ a_colon }} {{ jump_pc_username }}{{ new_line }}Password{{ a_colon }} {{ ansible_ssh_pass }}{{ new_line }}{{ new_line }}Best Regards,{{ new_line }}Mohamed Ghaleb{{ new_line }}CloudFirst Team{{ new_line }}'
-  tags:
-    - e_mail
+# - debug:
+#    msg="{{ ec2.tagged_instances[0].public_ip }}"
+
+- name: provision | set facts for ansible_ssh_host
+  set_fact:
+        ansible_ssh_host: "{{ ec2.tagged_instances[0].public_ip }}"

@@ -1,6 +1,6 @@
 ---
 
-# Basic user creation example
+# Basic user creation
 - name: Create IAM users with API keys
   iam:
     iam_type: user
@@ -8,5 +8,7 @@
     state: present
     password: "{{ ansible_ssh_pass }}"
     access_key_state: create
+    groups: CloudAdminEngineer
+  ignore_errors: true
   tags:
   - create_users
