@@ -1,0 +1,12 @@
+---
+
+# Basic user creation example
+- name: Create IAM users with API keys
+  iam:
+    iam_type: user
+    name: "{{ aws_username }}"
+    state: present
+    password: "{{ ansible_ssh_pass }}"
+    access_key_state: create
+  tags:
+  - create_users
