@@ -24,3 +24,11 @@
 #    delay=1
 #    timeout=5
 #  search_regex=OpenSSH
+- local_action: mail
+                host='smtp.gmail.com'
+                port=587
+                username=username@gmail.com
+                password='mysecret'
+                to="John Smith <john.smith@example.com>"
+                subject='Ansible-report'
+                body='System {{ ansible_hostname }} has been successfully provisioned.'
