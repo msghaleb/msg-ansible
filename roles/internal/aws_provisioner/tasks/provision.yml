@@ -24,11 +24,16 @@
 #    delay=1
 #    timeout=5
 #  search_regex=OpenSSH
-- local_action: mail
-                host='smtp.gmail.com'
-                port=587
-                username=username@gmail.com
-                password='mysecret'
-                to="John Smith <john.smith@example.com>"
+- name: provision | Mail confimration module
+  local_action: mail
+                host='smtp.strato.de'
+                port=465
+                username='info@web-wand.de'
+                password='Fre!s!ng2015'
+                headers="Content-type=text/html"
+                from="mohamed.ghaleb@amazonaws.com (Mohamed Ghaleb)"
+                to="Mohamed Ghaleb <mohamed.ghaleb@gmail.com>, Mohamed Ghaleb <mohamed.ghaleb@siemens.com>"
                 subject='Ansible-report'
-                body='System {{ ansible_hostname }} has been successfully provisioned.'
+                body='{{ lookup("file", "../../windows_install/files/jump_users_mail.txt") }}'
+  tags:
+    - e_mail
