@@ -11,3 +11,23 @@ windows_install_msi                :
 windows_install_exe                : 
                                      - url: 'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe'
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\putty.exe'
+e_mail_template                    : |
+                                        <html>
+                                        <head>
+                                        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+                                        <title>Untitled Document</title>
+                                        </head>
+                                        <body>
+                                        <p>Dear {{ user_fname }}, </p>
+                                        <p>Your Amazon Cloud login has been created and ready to use, below are the needed details:</p>
+                                        <p>url: https://693860272213.signin.aws.amazon.com/console<br />
+                                        Username: {{ aws_username }}<br />
+                                        Password: {{ ansible_ssh_pass }}</p>
+                                        <p>Your cloud system {{ inventory_hostname }} has been successfully provisioned and ready to be used.</p>
+                                        <p>Please access it using the following link: https://ansible_ssh_host</p>
+                                        <p>Username: {{ jump_pc_username }}<br />Password: {{ ansible_ssh_pass }}</p>
+                                        <p>Best Regards,<br />
+                                        Mohamed Ghaleb<br />
+                                        CloudFirst Team</p>
+                                        </body>
+                                        </html>
