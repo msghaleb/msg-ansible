@@ -20,7 +20,7 @@
 - name: provision | Waiting for winrm port to open
   wait_for:
     port="{{ ansible_ssh_port | default('22') }}"
-    host="{{ ec2.tagged_instances[0].public_ip  }}"
+    host="{{ ec2.tagged_instances[0].public_dns  }}"
     delay=1
     timeout=600
 #  search_regex=OpenSSH
@@ -29,4 +29,4 @@
 
 - name: provision | set facts for ansible_ssh_host
   set_fact:
-        ansible_ssh_host: "{{ ec2.tagged_instances[0].public_ip }}"
+        ansible_ssh_host: "{{ ec2.tagged_instances[0].public_dns }}"
