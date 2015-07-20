@@ -1,0 +1,7 @@
+---
+
+- name: bla bla bla
+  win_file_lnk: 
+        src="c:\windows\system32\notepad.exe"
+        dest="C:\Users\Administrator\Desktop\notepad.lnk"
+
