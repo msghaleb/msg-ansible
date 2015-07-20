@@ -1,7 +1,7 @@
 ---
 # demo_setup.yml
 
-- hosts: all
+- hosts: jump
   connection: local # Local means it will run from the management server and won't connect to run remotly (smart("ssh), local, winrm, ...)
   gather_facts: False
   roles:

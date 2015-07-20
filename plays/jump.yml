@@ -1,7 +1,7 @@
 ---
 # demo_setup.yml
 
-- hosts: all
+- hosts: jump
   gather_facts: False
   connection: winrm
   roles:
