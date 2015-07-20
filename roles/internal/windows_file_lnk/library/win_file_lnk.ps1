@@ -82,14 +82,14 @@ If (!(Test-Path $src)){
 If (Test-Path $dest){
   # // File does exist
   $sh = New-Object -COM WScript.Shell
-  $targetPath = $sh.CreateShortcut('$dest').TargetPath
+  $targetPath = $sh.CreateShortcut($dest).TargetPath
   if ($TargetPath -eq $src){
     Exit-Json $result;
   }
   Elseif ($force){
     create_lnk $src $dest   
   }
-  Elseif (!($force)) {
+  Else{
     Fail-Json $result "The destination shortcut $dest does exist and force = false!"     
   }
 
