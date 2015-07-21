@@ -9,6 +9,7 @@
     password: "{{ ansible_ssh_pass }}"
     access_key_state: create
     groups: CloudAdminEngineer
-  ignore_errors: true
+  ignore_errors: True
+  failed_when: False
   tags:
   - create_users

@@ -5,36 +5,48 @@
 #    path="{{ windows_install_download_directory }}"
 #    state=directory
 
-
+# item.url is the url of the item below in this case windows_install_exe
+# item.dest is the dest of the item below in this case windows_install_exe
 - name: Download file exe files
   win_get_url:
-    url: "{{ item.url }}" # item.url is the url of the item below in this case windows_install_exe
-    dest: "{{ item.dest }}" # item.dest is the dest of the item below in this case windows_install_exe
+    url="{{ item.url }}"
+    dest="{{ item.dest }}"
   with_items: windows_install_exe
   when: windows_install_exe is defined 
   tags:
-    - exe_download
+    - download_exe
 
 - name: Download file msi files
   win_get_url:
-    url: "{{ item.url }}"
-    dest: "{{ item.dest }}" # item.dest is the dest of the item below in this case windows_install_msi
+    url="{{ item.url }}"
+    dest="{{ item.dest }}"
   with_items: windows_install_msi
   when: windows_install_msi is defined 
 
 - name: Install msi files
   win_msi: 
-    path="{{ item.dest }}" # item.dest is the dest of the item below in this case windows_install_msi
+    path="{{ item.dest }}"
   with_items: windows_install_msi
   when: windows_install_msi is defined 
 
+- name: Creating Shortcuts
+  win_file_lnk:
+    src="{{ item.src }}"
+    dest="{{ item.dest }}"
+  with_items: windows_install_create_shortcuts
+  when: windows_install_create_shortcuts
+  tags:
+    - create_shortcuts
+
 - name: Copy ThinRDP config file
   win_copy:
-    src=Thinfinity.RemoteDesktop.Workstation.ini
-    dest='C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\Thinfinity.RemoteDesktop.Workstation.ini'
+    src="{{ item.src }}"
+    dest="{{ item.dest }}"
+  with_items: windows_install_copy_thinRDP
+  when: windows_install_copy_thinRDP
   notify:
     - restart thinRDP
     - mail confimration module
   tags:
-    - cpy_thinrdp
+    - copy_thinrdp
 
