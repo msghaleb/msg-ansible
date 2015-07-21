@@ -1,0 +1,7 @@
+---
+
+ansible_install_git_repository : "https://github.com/ansible/ansible.git"
+ansible_install_git_version    : "HEAD"
+ansible_install_src_dir        : "/opt/ansible"
+# if you want to force an upgrade use 'latest'
+ansible_install_state          : "present"

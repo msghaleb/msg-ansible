@@ -1,0 +1,7 @@
+---
+
+msg_install_git             : "https://github.com/msghaleb/msg-ansible.git"
+msg_install_src_dir         : "/home/ubuntu/msg-ansible"
+msg_install_pip_modules     : 
+                               - boto
+                               - pywinrm

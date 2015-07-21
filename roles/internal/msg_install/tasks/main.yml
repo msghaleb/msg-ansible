@@ -1,0 +1,13 @@
+---
+
+- name: Install msg git repo
+  git:
+    repo="{{ msg_install_git }}"
+    dest="{{ msg_install_src_dir }}"
+    accept_hostkey=true
+    force=yes
+
+- name: Install pip modules
+  pip:
+    name="{{ item }}"
+  with_items: msg_install_pip_modules

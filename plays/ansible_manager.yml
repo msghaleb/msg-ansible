@@ -1,0 +1,8 @@
+---
+
+- name: Setup Ansible contorl machine
+  hosts: management
+  become: True # sudo
+  roles:
+    - ansible-install
+    - msg_install
