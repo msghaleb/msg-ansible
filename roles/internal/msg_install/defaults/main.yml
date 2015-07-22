@@ -1,8 +1,7 @@
 ---
 
-msg_install_user            : "ubuntu"
 msg_install_git             : "https://github.com/msghaleb/msg-ansible.git"
-msg_install_src_dir         : "/home/{{ msg_install_user }}/msg-ansible"
+msg_install_src_dir         : "/home/ubuntu/msg-ansible"
 msg_install_pip_modules     : 
                                - boto
                                - pywinrm

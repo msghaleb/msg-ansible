@@ -6,7 +6,6 @@
     dest="{{ msg_install_src_dir }}"
     accept_hostkey=true
     force=yes
-  become_user: "{{ msg_install_user }}"
 
 - name: Install pip modules
   pip:
