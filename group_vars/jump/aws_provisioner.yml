@@ -18,6 +18,7 @@ aws_keypair         : "ghaleb2"
 # Default variable winrm port and windows user
 ansible_ssh_port    : 5986  
 ansible_ssh_user    : Administrator
+# below is the password generator, not all characters are allowed but at least 1 special is a must.
 ansible_ssh_pass    : "{{ lookup('password', '/tmp/jump_pcs/' + inventory_hostname + '/pass chars=ascii_letters,digits length=25') }}!"
 aws_user_data       : |
                         <powershell>

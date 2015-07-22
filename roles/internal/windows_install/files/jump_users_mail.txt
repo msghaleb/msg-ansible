@@ -8,7 +8,7 @@
 <p>Dear {{ user_fname }}, </p>
 <p>Your Amazon Cloud login has been created and ready to use, below are the needed details:</p>
 <p>url: https://693860272213.signin.aws.amazon.com/console<br />
-Username: {{ aws_username }}<br />
+Username: {{ user_email }}<br />
 Password: {{ ansible_ssh_pass }}</p>
 <p>Your cloud system {{ inventory_hostname }} has been successfully provisioned and ready to be used.</p>
 <p>Please access it using the following link: https://{{ ansible_ssh_host }}</p>

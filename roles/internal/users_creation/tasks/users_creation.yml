@@ -4,7 +4,7 @@
 - name: Create IAM users with API keys
   iam:
     iam_type: user
-    name: "{{ aws_username }}"
+    name: "{{ user_email }}"
     state: present
     password: "{{ ansible_ssh_pass }}"
     access_key_state: create
