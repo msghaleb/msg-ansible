@@ -6,8 +6,8 @@
 #    msg="password={{ ansible_ssh_pass }}"
 
 - name: Download file exe files
-  win_get_url:
-    url="{{ item.url }}"
+  win_file_download:
+    src="{{ item.src }}"
     dest="{{ item.dest }}"
   with_items: windows_install_exe
   when: windows_install_exe is defined 
@@ -15,8 +15,8 @@
     - download_exe
 
 - name: Download file msi files
-  win_get_url:
-    url="{{ item.url }}"
+  win_file_download:
+    src="{{ item.src }}"
     dest="{{ item.dest }}"
   with_items: windows_install_msi
   when: windows_install_msi is defined 
