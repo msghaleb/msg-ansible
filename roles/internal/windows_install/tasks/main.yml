@@ -1,12 +1,10 @@
 ---
 
-#- name: Creat Download directory
-#  win_file: 
-#    path="{{ windows_install_download_directory }}"
-#    state=directory
+#- name: fail
+#  connection: local
+#  debug:
+#    msg="password={{ ansible_ssh_pass }}"
 
-# item.url is the url of the item below in this case windows_install_exe
-# item.dest is the dest of the item below in this case windows_install_exe
 - name: Download file exe files
   win_get_url:
     url="{{ item.url }}"
