@@ -92,16 +92,18 @@ $HTTP_Response.Close()
 
 # dest check
 If (Test-Path $dest){
-  # // File does exist 
-  Exit-Json $result;
-  }
-  Elseif ($force){
+    # // File does exist 
+    Exit-Json $result;
+  
+  if ($force){
     download_file $src $dest   
   }
+
   Else{
     Fail-Json $result "The destination file $dest already exists and force = false!"     
   }
-  Else {
+}
+Else {
   download_file $src $dest
 }
 
