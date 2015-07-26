@@ -1,9 +1,5 @@
 ---
 
-#- name: fail
-#  connection: local
-#  debug:
-#    msg="password={{ ansible_ssh_pass }}"
 
 - name: Download file exe files
   win_file_download:

@@ -33,18 +33,16 @@ $result = New-Object psobject @{
     changed = $false
 }
 
-Function download_file ($source, $destination){
+Function copy_file ($source, $destination){
  # TODO: do try catch error
-  $webclient = New-Object System.Net.WebClient
-  
   
   Try {
-    $webclient.DownloadFile($source,$destination)
+    Copy-Item -Path $src -Destination $dest
     $result.changed = $true
   }
   
   Catch {
-    Fail-Json $result "Error downloading $src"
+    Fail-Json $result "Error copying $src to $dest"
   }
 
 }
@@ -71,38 +69,27 @@ Else {
     $force = $false
 }
 
-# Source check: First we create the request.
-$HTTP_Request = [System.Net.WebRequest]::Create('http://google.com')
-  
-# We then get a response from the site.
-$HTTP_Response = $HTTP_Request.GetResponse()
-
-# We then get the HTTP code as an integer.
-$HTTP_Status = [int]$HTTP_Response.StatusCode
-
-
 # src check
-If ($HTTP_Status -ne 200){
-  # // File does not exist or site in N/A
+If (!(Test-Path $src)){
+  # // File does not exist
   Fail-Json $result "The source file $src does not exist"
 }
 
-# we clean up the http request by closing it.
-$HTTP_Response.Close()
-
 # dest check
 If (Test-Path $dest){
-  # // File does exist 
-  Exit-Json $result;
-  }
-  Elseif ($force){
-    download_file $src $dest   
+  # // File does exist
+  
+  if ($force){
+    copy_file $src $dest   
   }
   Else{
-    Fail-Json $result "The destination file $dest already exists and force = false!"     
+    Exit-Json $result;     
   }
-  Else {
-  download_file $src $dest
+
+
+}
+Else {
+  copy_file $src $dest
 }
 
 

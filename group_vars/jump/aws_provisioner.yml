@@ -19,7 +19,12 @@ aws_keypair         : "ghaleb2"
 ansible_ssh_port    : 5986  
 ansible_ssh_user    : Administrator
 # below is the password generator, not all characters are allowed but at least 1 special is a must.
-ansible_ssh_pass    : "{{ lookup('password', '/tmp/jump_pcs/' + inventory_hostname + '/pass chars=ascii_letters,digits length=25') }}!"
+# aws_iam_pass is the IAM password
+aws_iam_pass        : "{{ lookup('password', '/tmp/jump_pcs/' + inventory_hostname + '/iam_pass chars=ascii_letters,digits length=25') }}!" 
+# aws_windows_pass is the jump PC windows password.
+aws_windows_pass    : "{{ lookup('password', '/tmp/jump_pcs/' + inventory_hostname + '/win_pass chars=ascii_letters,digits length=25') }}!"
+# Thats the default password, ansible is using for connecting to clients.
+ansible_ssh_pass    : "{{ aws_windows_pass }}"
 aws_user_data       : |
                         <powershell>
                         echo "Trying to set policy " > C:\bootscript.txt
@@ -32,6 +37,6 @@ aws_user_data       : |
                         echo "Invoke-Expression  ConfigureRemotingForAnsible.ps1" >> C:\bootscript.txt
                         Invoke-Expression C:\ConfigureRemotingForAnsible.ps1
                         echo "Trying to change password for Admin" >> C:\bootscript.txt
-                        net user Administrator {{ ansible_ssh_pass }}
+                        net user Administrator {{ aws_windows_pass }}
                         echo "Bootstrap finished" >> C:\bootscript.txt
                         </powershell>

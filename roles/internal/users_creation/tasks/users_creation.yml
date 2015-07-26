@@ -6,7 +6,7 @@
     iam_type: user
     name: "{{ user_email }}"
     state: present
-    password: "{{ ansible_ssh_pass }}"
+    password: "{{ aws_iam_pass }}"
     access_key_state: create
     groups: CloudAdminEngineer
   ignore_errors: True
