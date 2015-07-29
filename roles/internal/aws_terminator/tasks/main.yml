@@ -5,8 +5,8 @@
     module: ec2_instance_facts
     states:
       - running
-    tags:
-      name: "Mohamed_Ghaleb"
+    #tags:
+    #  name: "Mohamed_Ghaleb"
     region: "eu-central-1"
   register: instance_facts
   ignore_errors: yes
