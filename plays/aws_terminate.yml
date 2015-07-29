@@ -1,12 +1,9 @@
 ---
 
-- name: Obtain list of existing stopped instances with tag 'environment' equal to 'prod'
-  local_action:
-    module: ec2_instance_facts
-    states:
-      - running
-    tags:
-      name: "Mohamed_Ghaleb"
-    region: "{{ aws_region }}"
-  register: instance_facts
-  ignore_errors: yes
+- hosts: jump
+  connection: local # Local means it will run from the management server and won't connect to run remotly (smart("ssh), local, winrm, ...)
+  gather_facts: False
+  roles:
+    - aws_terminator
+
+

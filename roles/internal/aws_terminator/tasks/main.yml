@@ -1,0 +1,12 @@
+---
+
+- name: Obtain list of existing stopped instances with tag 'environment' equal to 'prod'
+  local_action:
+    module: ec2_instance_facts
+    states:
+      - running
+    tags:
+      name: "Mohamed_Ghaleb"
+    region: "eu-central-1"
+  register: instance_facts
+  ignore_errors: yes
