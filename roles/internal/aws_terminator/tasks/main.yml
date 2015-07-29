@@ -5,8 +5,20 @@
     module: ec2_instance_facts
     states:
       - running
-    #tags:
-    #  name: "Mohamed_Ghaleb"
+    tags:
+      Name: "Mohamed_Ghaleb"
     region: "eu-central-1"
   register: instance_facts
   ignore_errors: yes
+
+- name: Terminate all running instances (from above)
+  local_action:
+    module: ec2
+    state: running
+    instance_ids: "{{ item.id }}"
+    wait: yes
+    wait_timeout: 600
+    region: "{{ vpc_region }}"
+    aws_access_key: "{{ aws_access_key }}"
+    aws_secret_key: "{{ aws_secret_key }}"
+  with_items: instance_facts.instances
