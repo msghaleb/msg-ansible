@@ -4,9 +4,9 @@
   gather_facts: True
   connection: local
   vars:
-   - region: ''
+   - region: "aws_region"
   tasks:
    - name: Gather EC2 gather_facts
-   local_action: ec2_facts
+     local_action: ec2_facts
    - debug: var=hostvars[inventory_hostname]
    - debug: msg="{{ hostvars[inventory_hostname]['ec2_id'] }}"
