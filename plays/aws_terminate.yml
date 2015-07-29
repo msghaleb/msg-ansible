@@ -1,2 +1,12 @@
 ---
 
+- hosts: all
+  gather_facts: True
+  connection: local
+  vars:
+   - region: ''
+  tasks:
+   - name: Gather EC2 gather_facts
+   local_action: ec2_facts
+   - debug: var=hostvars[inventory_hostname]
+   - debug: msg="{{ hostvars[inventory_hostname]['ec2_id'] }}"
