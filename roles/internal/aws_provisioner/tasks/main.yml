@@ -9,3 +9,9 @@
 #- include: ssh.yml
 #  when: mach_state is defined and mach_state == "present"
 
+- name: bla bla
+  action: ec2_facts
+  tags: ec2_facts
+  
+- name: bla 2
+  action: debug msg="{{ ansible_ec2_instance_type }}"
