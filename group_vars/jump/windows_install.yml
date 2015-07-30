@@ -20,3 +20,6 @@ windows_install_create_shortcuts   :
 
                                      - src: 'c:\windows\system32\cmd.exe'
                                        dest: 'c:\Users\{{ windows_install_user }}\Desktop\cmd.lnk'
+
+                                     - src: 'c:\Program Files\Internet Explorer\iexplore.exe'
+                                       dest: 'c:\Users\{{ windows_install_user }}\Desktop\Internet Explorer.lnk'

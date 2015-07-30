@@ -1,22 +1,25 @@
 ---
 
 - name: Obtain list of existing stopped instances with tag 'environment' equal to 'prod'
-  local_action:
-    module: ec2_instance_facts
+  ec2_instance_facts:  
     states:
       - running
     tags:
       Name: "{{ inventory_hostname }}"
     region: "eu-central-1"
   register: instance_facts
-  ignore_errors: yes
+
 
 - name: Terminate all running instances (from above)
-  local_action:
-    module: ec2
+  ec2:  
     state: absent
     instance_ids: "{{ item.id }}"
     wait: yes
     wait_timeout: 600
     region: "{{ aws_region }}"
   with_items: instance_facts.instances
+
+
+
+
+

@@ -11,7 +11,7 @@
                 port=465
                 username='info@web-wand.de'
                 password='Fre!s!ng2015'
-                headers="Content-type=text/html"
+                headers=Reply-To=mohamed.ghaleb@siemens.com
                 charset='UTF-8'
                 from="no_reply@amazonaws.com (Mohamed Ghaleb)"
                 to='{{ user_email }}'
