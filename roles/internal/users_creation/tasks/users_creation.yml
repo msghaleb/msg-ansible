@@ -9,6 +9,7 @@
     password: "{{ aws_iam_pass }}"
     access_key_state: create
     groups: CloudAdminEngineer
+    update_password: on_create
   ignore_errors: True
   failed_when: False
   tags:
