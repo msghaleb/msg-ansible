@@ -40,7 +40,7 @@
   when: windows_install_copy_thinRDP
   notify:
     - restart thinRDP
-    - mail confimration module
+    #- mail confimration module
   tags:
     - copy_thinrdp
 

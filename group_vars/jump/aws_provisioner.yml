@@ -2,8 +2,9 @@
 aws_instances_name  : "{{ inventory_hostname }}"
 tag_group           : "jump"
 aws_group           : "ghaleb_win"
-aws_instance_type   : "t2.micro"
-aws_image           : "ami-c887bed5"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 
+aws_instance_type   : "t2.medium"
+#aws_image           : "ami-c887bed5"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 --> EU
+aws_image           : "ami-c3b3b1f3"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 --> US
 aws_wait            : "true"
 aws_exact_count     : "1" # The number of computers to provision
 aws_count_tag       :

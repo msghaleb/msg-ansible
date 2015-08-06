@@ -6,7 +6,7 @@
       - running
     tags:
       Name: "{{ inventory_hostname }}"
-    region: "eu-central-1"
+    region: "{{ aws_region }}"
   register: instance_facts
 
 
