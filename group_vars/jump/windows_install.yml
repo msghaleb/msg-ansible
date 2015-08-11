@@ -4,7 +4,7 @@ windows_install_download_directory : 'C:\Users\{{ windows_install_user }}\Downlo
 
 windows_install_msi                :
                                      - src: 'http://web-wand.de/Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
-                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\Thinfinity_Remote_Desktop_Workstation_Setup_x86.msi'
                                      - src: 'http://hicap.frontmotion.com.s3.amazonaws.com/Firefox/Firefox-39.0/Firefox-39.0-en-US.msi'
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\Firefox-39.0-en-US.msi'
 windows_install_exe                : 
