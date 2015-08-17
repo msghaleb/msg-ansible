@@ -24,6 +24,3 @@ windows_install_create_shortcuts   :
 
                                      - src: 'c:\windows\system32\notepad.exe'
                                        dest: 'c:\Users\{{ windows_install_user }}\Desktop\notepad.lnk'
-
-                                     - src: 'c:\Program Files\Internet Explorer\iexplore.exe'
-                                       dest: 'c:\Users\{{ windows_install_user }}\Desktop\Internet Explorer.lnk'
