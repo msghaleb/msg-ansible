@@ -32,6 +32,14 @@
   tags:
     - create_shortcuts
 
+- name: Creating Folders
+  win_file:
+    path="{{ item.path }}"
+  with_items: windows_install_create_folders
+  when: windows_install_create_folders
+  tags:
+    - create_folders
+
 - name: Copy ThinRDP config file
   win_copy:
     src="{{ item.src }}"

@@ -18,12 +18,12 @@ windows_install_exe                :
 windows_install_copy_thinRDP       :
                                      - src: 'Thinfinity.RemoteDesktop.Workstation.ini'
                                        dest: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\Thinfinity.RemoteDesktop.Workstation.ini'
-                                     - src: 'DB'
-                                       dest: 'C:/ProgramData/Cybele Software/Thinfinity/Remote Desktop Workstation/'
-                                     - src: 'Keys'
-                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\'
-                                     
-
+                                     - src: 'sandbox_iis_demo.pem'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.pem'
+                                     - src: 'sandbox_iis_demo.pub'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.pub'
+                                     - src: 'anonymous.json'
+                                       dest: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\DB\anonymous.json'
 windows_install_create_shortcuts   :
                                      - src: 'c:\windows\system32\mstsc.exe'
                                        dest: 'c:\Users\{{ windows_install_user }}\Desktop\Remote_Desktop.lnk'
@@ -33,3 +33,6 @@ windows_install_create_shortcuts   :
 
                                      - src: 'c:\windows\system32\notepad.exe'
                                        dest: 'c:\Users\{{ windows_install_user }}\Desktop\notepad.lnk'
+windows_install_create_folders     :
+                                     - path: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\DB'
+                                     - path: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys'
