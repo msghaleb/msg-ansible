@@ -34,7 +34,8 @@
 
 - name: Creating Folders
   win_file:
-    path="{{ item.path }}"
+    path="{{ item.path }}" 
+    state=directory
   with_items: windows_install_create_folders
   when: windows_install_create_folders
   tags:
