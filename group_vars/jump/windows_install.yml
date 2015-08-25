@@ -22,6 +22,8 @@ windows_install_copy_thinRDP       :
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.pem'
                                      - src: 'sandbox_iis_demo.pub'
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.pub'
+                                     - src: 'sandbox_iis_demo.ppk'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.ppk'
                                      - src: 'anonymous.json'
                                        dest: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\DB\anonymous.json'
 windows_install_create_shortcuts   :
