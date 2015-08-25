@@ -35,4 +35,4 @@ windows_install_create_shortcuts   :
                                        dest: 'c:\Users\{{ windows_install_user }}\Desktop\notepad.lnk'
 windows_install_create_folders     :
                                      - path: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\DB'
-                                     - path: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys'
+                                     - path: 'C:\Users\{{ windows_install_user }}\Desktop\Keys'
