@@ -13,11 +13,15 @@ windows_install_exe                :
                                      - src: 'http://the.earth.li/~sgtatham/putty/latest/x86/puttygen.exe'
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\puttygen.exe'
                                      - src: 'http://web-wand.de/ThinRDP/WinSCP.exe'
-                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\WinSCP.exe'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\WinSCP.exe'
 
 windows_install_copy_thinRDP       :
                                      - src: 'Thinfinity.RemoteDesktop.Workstation.ini'
                                        dest: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\Thinfinity.RemoteDesktop.Workstation.ini'
+                                     - src: 'sandbox_iis_demo.pem'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.pem'
+                                     - src: 'sandbox_iis_demo.pub'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.pub'
 
 windows_install_create_shortcuts   :
                                      - src: 'c:\windows\system32\mstsc.exe'
