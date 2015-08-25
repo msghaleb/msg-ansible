@@ -18,9 +18,9 @@ windows_install_exe                :
 windows_install_copy_thinRDP       :
                                      - src: 'Thinfinity.RemoteDesktop.Workstation.ini'
                                        dest: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\Thinfinity.RemoteDesktop.Workstation.ini'
-                                     - src: 'files/DB'
+                                     - src: 'DB'
                                        dest: 'C:/ProgramData/Cybele Software/Thinfinity/Remote Desktop Workstation/'
-                                     - src: 'files/Keys/'
+                                     - src: 'Keys'
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\'
                                      
 
