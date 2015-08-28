@@ -3,8 +3,8 @@
 windows_install_download_directory : 'C:\Users\{{ windows_install_user }}\Downloads'
 
 windows_install_msi                :
-                                     - src: 'http://web-wand.de/ThinRDP/Thinfinity_Remote_Desktop_Workstation_Setup_x86.msi'
-                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\Thinfinity_Remote_Desktop_Workstation_Setup_x86.msi'
+                                     - src: 'http://web-wand.de/ThinRDP/Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
+                                       dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\Thinfinity_Remote_Desktop_Workstation_Setup_x64.msi'
                                      - src: 'http://hicap.frontmotion.com.s3.amazonaws.com/Firefox/Firefox-39.0/Firefox-39.0-en-US.msi'
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Downloads\\Firefox-39.0-en-US.msi'
 windows_install_exe                : 
@@ -24,8 +24,8 @@ windows_install_copy_thinRDP       :
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.pub'
                                      - src: 'sandbox_iis_demo.ppk'
                                        dest: 'C:\\Users\\{{ windows_install_user }}\\Desktop\\Keys\\sandbox_iis_demo.ppk'
-                                     - src: 'anonymous.json'
-                                       dest: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\DB\anonymous.json'
+                                     #- src: 'anonymous.json'
+                                     #  dest: 'C:\ProgramData\Cybele Software\Thinfinity\Remote Desktop Workstation\DB\anonymous.json'
 windows_install_create_shortcuts   :
                                      - src: 'c:\windows\system32\mstsc.exe'
                                        dest: 'c:\Users\{{ windows_install_user }}\Desktop\Remote_Desktop.lnk'
