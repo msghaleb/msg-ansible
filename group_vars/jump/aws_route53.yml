@@ -1,0 +1,4 @@
+---
+aws_route53_record   : "{{ inventory_hostname }}.sandbox.cloudfirst.info"
+aws_route53_value    : "{{ ansible_ssh_host }}"
+aws_route53_overwrite: "yes"

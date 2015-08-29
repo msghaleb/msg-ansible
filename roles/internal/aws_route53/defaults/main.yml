@@ -1,0 +1,9 @@
+---
+
+aws_route53_command   : 'create'
+aws_route53_zone      : 'sandbox.cloudfirst.info'
+# aws_route53_record  : 'test.{{ aws_route53_zone }}'
+aws_route53_type      : 'A'
+aws_route53_ttl       : 60
+# aws_route53_value   : '1.1.1.1'
+aws_route53_overwrite : 'no'

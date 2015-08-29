@@ -6,6 +6,7 @@
   roles:
     - users_creation
     - aws_provisioner
+    - aws_route53
 
 - hosts: jump
   gather_facts: False

@@ -1,0 +1,11 @@
+---
+
+- name: Route 53 record management
+  route53:
+      command: "{{ aws_route53_command }}"
+      zone: "{{ aws_route53_zone }}"
+      record: "{{ aws_route53_record }}"
+      type: "{{ aws_route53_type  }}"
+      ttl: "{{ aws_route53_ttl }}"
+      value: "{{ aws_route53_value }}"
+      overwrite: "{{ aws_route53_overwrite }}"

@@ -26,4 +26,4 @@
 
 - name: provision | set facts for ansible_ssh_host
   set_fact:
-        ansible_ssh_host: "{{ ec2.tagged_instances[0].public_dns_name }}"
+        ansible_ssh_host: "{{ ec2.tagged_instances[0].public_ip }}"
