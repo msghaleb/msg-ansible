@@ -4,10 +4,10 @@ tag_group           : "jump"
 aws_group           : "ghaleb_win"
 aws_instance_type   : "t2.medium"
 #aws_image           : "ami-0a181f17"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 --> FFM
-aws_image           : "ami-4dbcb67d"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 --> US - Oregon
+#aws_image           : "ami-4dbcb67d"  # Windows_Server-2012-RTM-English-64Bit-Base-2015.06.10 --> US - Oregon
 #aws_image           : "ami-cd9339a6"  # Windows Server 2012 --> N. Virginia
 #aws_image           : "ami-1a92cf6d"  # Windows Server 2012 --> IE
-#aws_image           : "ami-12737d40"  # Windows Server 2012 --> SGP
+aws_image           : "ami-12737d40"  # Windows Server 2012 --> SGP
 aws_wait            : "true"
 aws_exact_count     : "1" # The number of computers to provision
 aws_count_tag       :
