@@ -1,8 +1,8 @@
 ---
 # AWS region is Frankfurt
-aws_region  : "eu-central-1" #Frankfurt
+#aws_region  : "eu-central-1" #Frankfurt
 #aws_region  : "eu-west-1" #Ireland
-#aws_region  : "us-west-2" #Oregon
+aws_region  : "us-west-2" #Oregon
 #aws_region  : "us-east-1" #N. Virigina
 #aws_region  : "us-west-2" #Oregon
 #aws_region  : "ap-southeast-1" #Singapour
