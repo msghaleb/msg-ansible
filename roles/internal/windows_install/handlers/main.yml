@@ -10,7 +10,7 @@
                 host='smtp.strato.de'
                 port=465
                 username='info@web-wand.de'
-                password='Fre!s!ng2015'
+                password='Zolling2015!'
                 headers=Reply-To=mohamed.ghaleb@siemens.com
                 charset='UTF-8'
                 from="no_reply@amazonaws.com (Mohamed Ghaleb)"
